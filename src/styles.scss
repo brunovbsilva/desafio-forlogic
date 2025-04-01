@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: -webkit-fill-available;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+hr {
+	background-color: rgb(180, 180, 180);
+	outline: none;
+	border: none;
+	margin: 0;
+	width: 100%;
+	height: 1px;
+
+	&[vertical] {
+		width: 1px;
+		height: 100%;
+	}
+}

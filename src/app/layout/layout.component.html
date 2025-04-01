@@ -1,1 +1,40 @@
-<p>layout works!</p>
+<aside class="sidebar" data-test="sidebar">
+	<div class="sidebar-header" data-test="sidebar-header">
+		<span class="main-text-sidebar-header">OC</span>
+		<span class="secondary-text-sidebar-header">Operação Curiosidade</span>
+	</div>
+	<nav class="sidebar-nav" data-test="sidebar-nav">
+		<ul>
+			<li data-test="sidebar-nav-link">
+				<a class="nav-item">
+					<span>Home</span>
+				</a>
+				<hr />
+			</li>
+			<li data-test="sidebar-nav-link">
+				<a class="nav-item">
+					<span>Cadastro</span>
+				</a>
+				<hr />
+			</li>
+			<li data-test="sidebar-nav-link">
+				<a class="nav-item">
+					<span>Relatórios</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</aside>
+<main class="main-content">
+	<header class="main-header" data-test="header">
+		<input class="header-input" type="text" placeholder="Pesquisar..." data-test="header-input" />
+		<div class="spacer"></div>
+		<div class="header-user" data-test="header-user">
+			<img class="user-image" src="https://i.ibb.co/jPGBW4wL/user.jpg" alt="User image" />
+			<span class="user-name" data-test="header-user-name">Nome do Usuário</span>
+		</div>
+		<hr vertical />
+		<button data-test="header-logout">Sair</button>
+	</header>
+	<router-outlet />
+</main>
