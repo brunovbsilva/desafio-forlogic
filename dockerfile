@@ -9,7 +9,7 @@ RUN $BUILD_COMMAND
 
 FROM nginx:latest
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=build /app/dist/angular-template/browser /usr/share/nginx/html
+COPY --from=build /app/dist/desafio-forlogic/browser /usr/share/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

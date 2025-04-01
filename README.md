@@ -1,3 +1,3 @@
-# AngularTemplate
+# Desafio ForLogic
 
-Template desenvolvido e mantido por Bruno Vinicius Barros da Silva
+Desafio realizado por Bruno Vinicius Barros da Silva

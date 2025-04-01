@@ -1,6 +1,6 @@
 import { computed, Injectable, signal } from '@angular/core';
 
-export const MAIN_TITLE = 'Template';
+export const MAIN_TITLE = 'ForLogic';
 
 @Injectable({
 	providedIn: 'root',

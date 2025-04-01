@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"angular-template": {
+		"desafio-forlogic": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
@@ -17,7 +17,7 @@
 				"build": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/angular-template",
+						"outputPath": "dist/desafio-forlogic",
 						"index": "src/index.html",
 						"browser": "src/main.ts",
 						"polyfills": ["zone.js"],
@@ -101,16 +101,16 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "angular-template:build:production"
+							"buildTarget": "desafio-forlogic:build:production"
 						},
 						"staging": {
-							"buildTarget": "angular-template:build:staging"
+							"buildTarget": "desafio-forlogic:build:staging"
 						},
 						"development": {
-							"buildTarget": "angular-template:build:development"
+							"buildTarget": "desafio-forlogic:build:development"
 						},
 						"local": {
-							"buildTarget": "angular-template:build:local"
+							"buildTarget": "desafio-forlogic:build:local"
 						}
 					},
 					"defaultConfiguration": "local"
