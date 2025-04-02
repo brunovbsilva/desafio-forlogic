@@ -11,8 +11,27 @@
 
 	app-card {
 		flex: 1 1 auto;
-	}
-}
 
-.main-content {
+		.card-score {
+			font-size: 3.5rem;
+			line-height: 2.5;
+			text-align: center;
+			&--primary {
+				color: var(--primary-color);
+			}
+			&--success {
+				color: var(--success-color);
+			}
+			&--danger {
+				color: var(--danger-color);
+			}
+		}
+
+		.card-hint {
+			display: block;
+			width: 100%;
+			text-align: end;
+			color: var(--text-hint-color);
+		}
+	}
 }

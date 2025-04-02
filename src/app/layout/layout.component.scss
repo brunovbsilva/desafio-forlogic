@@ -47,6 +47,8 @@
 	flex-direction: column;
 	flex: 1 1 auto;
 	margin: 1rem;
+	overflow-x: hidden;
+	overflow-y: auto;
 	.main-header {
 		display: flex;
 		background-color: var(--header-color);

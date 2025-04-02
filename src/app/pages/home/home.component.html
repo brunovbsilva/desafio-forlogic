@@ -1,26 +1,26 @@
 <div class="card-row" data-test="card-row">
 	<app-card data-test="total-card">
 		<ng-container body>
-			<span>100</span>
+			<span class="card-score card-score--primary">100</span>
 		</ng-container>
 		<ng-container footer>
-			<span>Total de cadastros</span>
+			<span class="card-hint">Total de cadastros</span>
 		</ng-container>
 	</app-card>
 	<app-card data-test="last-month-card">
 		<ng-container body>
-			<span>100</span>
+			<span class="card-score card-score--success">100</span>
 		</ng-container>
 		<ng-container footer>
-			<span>Cadastros no último mês</span>
+			<span class="card-hint">Cadastros no último mês</span>
 		</ng-container>
 	</app-card>
 	<app-card data-test="pending-card">
 		<ng-container body>
-			<span>100</span>
+			<span class="card-score card-score--danger">100</span>
 		</ng-container>
 		<ng-container footer>
-			<span>Cadastros com pendência de revisão</span>
+			<span class="card-hint">Cadastros com pendência de revisão</span>
 		</ng-container>
 	</app-card>
 </div>
