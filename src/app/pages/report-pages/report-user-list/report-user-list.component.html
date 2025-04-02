@@ -1,1 +1,24 @@
-<p>report-user-list works!</p>
+<app-card class="main-content" data-test="main-content">
+	<ng-container header>
+		<h2>Relatórios > Lista de usuários</h2>
+		<a custom-button severity="primary">Imprimir</a>
+	</ng-container>
+	<ng-container body>
+		<table data-test="main-table">
+			<thead>
+				<tr>
+					<th class="align-start">Nome</th>
+					<th class="align-start">E-mail</th>
+					<th class="align-center">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="align-start">Nome</td>
+					<td class="align-start">email.com</td>
+					<td class="align-center">Ativo</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+</app-card>
