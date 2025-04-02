@@ -1,10 +1,9 @@
-import { Component, ContentChild, inject } from '@angular/core';
-import { ControlContainer, NgControl, Validators } from '@angular/forms';
+import { Component, ContentChild } from '@angular/core';
+import { NgControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-form-field',
 	imports: [],
-	viewProviders: [{ provide: ControlContainer, useFactory: () => inject(ControlContainer, { skipSelf: true }) }],
 	templateUrl: './form-field.component.html',
 	styleUrl: './form-field.component.scss',
 })
