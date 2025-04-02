@@ -1,1 +1,35 @@
-<p>home works!</p>
+<div class="card-row" data-test="card-row">
+	<app-card data-test="total-card">
+		<ng-container body>
+			<span>100</span>
+		</ng-container>
+		<ng-container footer>
+			<span>Total de cadastros</span>
+		</ng-container>
+	</app-card>
+	<app-card data-test="last-month-card">
+		<ng-container body>
+			<span>100</span>
+		</ng-container>
+		<ng-container footer>
+			<span>Cadastros no último mês</span>
+		</ng-container>
+	</app-card>
+	<app-card data-test="pending-card">
+		<ng-container body>
+			<span>100</span>
+		</ng-container>
+		<ng-container footer>
+			<span>Cadastros com pendência de revisão</span>
+		</ng-container>
+	</app-card>
+</div>
+
+<app-card class="main-content" data-test="main-content">
+	<ng-container header>
+		<h2>Últimos cadastros</h2>
+	</ng-container>
+	<ng-container body>
+		<p>Body</p>
+	</ng-container>
+</app-card>

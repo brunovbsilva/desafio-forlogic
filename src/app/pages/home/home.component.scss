@@ -1,0 +1,18 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.card-row {
+	display: flex;
+	gap: 1rem;
+	justify-content: baseline;
+
+	app-card {
+		flex: 1 1 auto;
+	}
+}
+
+.main-content {
+}
