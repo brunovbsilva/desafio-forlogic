@@ -1,1 +1,57 @@
-<p>register-create works!</p>
+<form [formGroup]="form">
+	<app-card>
+		<ng-container header>
+			<h2>Novo cadastro</h2>
+			<p class="active-input">
+				<input type="radio" formControlName="active" />
+				<span>Ativo</span>
+			</p>
+		</ng-container>
+		<ng-container body>
+			<h3>1° Fatos e Dados</h3>
+			<hr />
+			<app-form-field>
+				<label for="name">Nome</label>
+				<input type="text" id="name" formControlName="name" />
+			</app-form-field>
+			<div class="form-row">
+				<app-form-field class="small-size">
+					<label for="age">Idade</label>
+					<input type="text" id="age" formControlName="age" />
+				</app-form-field>
+				<app-form-field>
+					<label for="email">E-mail</label>
+					<input type="text" id="email" formControlName="email" />
+				</app-form-field>
+			</div>
+			<app-form-field>
+				<label for="addess">Endereço</label>
+				<input type="text" id="addess" formControlName="address" />
+			</app-form-field>
+			<app-form-field>
+				<label for="other">Outras informações</label>
+				<textarea type="text" id="other" formControlName="other"></textarea>
+			</app-form-field>
+			<h3>2° Interesses</h3>
+			<hr />
+			<app-form-field>
+				<textarea type="text" id="other" formControlName="interest"></textarea>
+			</app-form-field>
+			<h3>3° Sentimentos</h3>
+			<hr />
+			<app-form-field>
+				<textarea type="text" id="other" formControlName="feelings"></textarea>
+			</app-form-field>
+			<h3>4° Valores</h3>
+			<hr />
+			<app-form-field>
+				<textarea type="text" id="other" formControlName="values"></textarea>
+			</app-form-field>
+		</ng-container>
+		<ng-container footer>
+			<div class="center-button">
+				<button custom-button severity="secondary" type="submit">Gravar</button>
+			</div>
+		</ng-container>
+	</app-card>
+</form>

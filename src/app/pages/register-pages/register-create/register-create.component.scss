@@ -1,0 +1,17 @@
+.form-row {
+	display: flex;
+	gap: 1rem;
+
+	app-form-field {
+		flex-grow: 4;
+	}
+
+	.small-size {
+		flex-grow: 1;
+	}
+}
+
+.center-button {
+	display: flex;
+	justify-content: center;
+}

@@ -1,0 +1,12 @@
+<div>
+	<ng-content select="label"></ng-content>
+	@if (control?.hasValidator(Validators.required)) {
+		<abbr class="required" title="required">*</abbr>
+	}
+</div>
+<ng-content></ng-content>
+@if (control?.invalid && control?.touched) {
+	<div class="error-message" data-test="error-message">
+		<span>Campo inválido!</span>
+	</div>
+}
