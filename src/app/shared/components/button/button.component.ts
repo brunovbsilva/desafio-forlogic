@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
 	// eslint-disable-next-line @angular-eslint/component-selector
-	selector: 'button[custom-button]',
+	selector: 'button[custom-button], a[custom-button]',
 	imports: [],
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.scss',
