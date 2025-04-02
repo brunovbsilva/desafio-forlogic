@@ -1,1 +1,22 @@
-<p>report works!</p>
+<app-card class="main-content" data-test="main-content">
+	<ng-container header>
+		<h2>Relatórios</h2>
+		<a custom-button severity="primary">Imprimir</a>
+	</ng-container>
+	<ng-container body>
+		<table data-test="main-table">
+			<thead>
+				<tr>
+					<th>NOME</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a class="report-item" routerLink="user-list">Lista de usuário</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+</app-card>

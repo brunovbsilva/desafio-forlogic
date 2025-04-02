@@ -31,6 +31,7 @@ describe('HomeComponent', () => {
 		it('pending card', () => expect(fixture.debugElement.nativeElement.querySelector(pendingCard)).toBeTruthy());
 	});
 
-  const mainContent = '[data-test="main-content"]';
-  it('should contains main content', () => expect(fixture.debugElement.nativeElement.querySelector(mainContent)).toBeTruthy());
+	const mainContent = '[data-test="main-content"]';
+	it('should contains main content', () =>
+		expect(fixture.debugElement.nativeElement.querySelector(mainContent)).toBeTruthy());
 });
