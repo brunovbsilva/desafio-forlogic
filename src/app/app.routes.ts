@@ -11,5 +11,6 @@ export const routes: Routes = [
 		component: LayoutComponent,
 		loadChildren: () => import('@routes/logged.routes').then(m => m.routes),
 	},
-	{ path: '', title: 'login', component: LoginComponent },
+	{ path: 'login', title: 'login', component: LoginComponent },
+	{ path: '**', redirectTo: 'login' },
 ];

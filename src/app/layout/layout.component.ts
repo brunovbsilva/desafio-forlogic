@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '@core/core-services/auth.service';
 import { ButtonComponent } from '@shared/components/button/button.component';
 
 @Component({
@@ -8,4 +9,13 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 	templateUrl: './layout.component.html',
 	styleUrl: './layout.component.scss',
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+	constructor(
+		private _authService: AuthService,
+		private _router: Router
+	) {}
+
+	public async logout() {
+		await this._authService.logout().then(() => this._router.navigate(['login']));
+	}
+}

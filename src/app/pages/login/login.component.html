@@ -1,1 +1,20 @@
-<p>login works!</p>
+<app-card data-test="card">
+	<ng-container header>
+		<div class="logo" data-test="logo">
+			<span class="main-text-logo">OC</span>
+			<span class="secondary-text-logo">Operação Curiosidade</span>
+		</div>
+	</ng-container>
+
+	<ng-container body>
+		<form [formGroup]="form" data-test="login-form" (submit)="login()">
+			<app-form-field>
+				<input type="email" formControlName="email" id="email" placeholder="Email" data-test="email" />
+			</app-form-field>
+			<app-form-field>
+				<input type="password" formControlName="password" id="password" placeholder="Senha" data-test="password" />
+			</app-form-field>
+			<button custom-button severity="secondary" type="submit" data-test="submit">Entrar</button>
+		</form>
+	</ng-container>
+</app-card>

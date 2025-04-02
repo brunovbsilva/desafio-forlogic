@@ -1,18 +1,31 @@
-import { computed, Injectable } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
-	public isAuthenticated = computed(() => localStorage.getItem('name') != null);
+	private _login = signal<string | null>(localStorage.getItem('name'));
+	public isAuthenticated = computed(() => !!this._login());
 
-	public login(name: string) {
-		if (name) localStorage.setItem('name', name);
-		return this.isAuthenticated();
+	public async login(name: string) {
+		this.setStorage(name);
+		return Promise.resolve(this.isAuthenticated());
 	}
 
-	public logout() {
+	public async logout() {
+		this.removeStorage();
+		return Promise.resolve(this.isAuthenticated());
+	}
+
+	private setStorage(name: string | null) {
+		if (name != null) {
+			localStorage.setItem('name', name);
+			this._login.set(name);
+		}
+	}
+
+	private removeStorage() {
 		localStorage.removeItem('name');
-		return this.isAuthenticated();
+		this._login.set(null);
 	}
 }

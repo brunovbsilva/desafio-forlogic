@@ -11,4 +11,5 @@ export const routes: Routes = [
 	{ path: 'register/create', title: 'Novo cadastro', component: RegisterCreateComponent },
 	{ path: 'report', title: 'Relatórios', component: ReportComponent },
 	{ path: 'report/user-list', title: 'Lista de usuários', component: ReportUserListComponent },
+	{ path: '**', redirectTo: '' },
 ];

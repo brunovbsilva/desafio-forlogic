@@ -1,4 +1,4 @@
-import { Component, ContentChild } from '@angular/core';
+import { Component, contentChild } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,11 @@ import { NgControl, Validators } from '@angular/forms';
 	styleUrl: './form-field.component.scss',
 })
 export class FormFieldComponent {
-	@ContentChild(NgControl, { static: false }) ngControl!: NgControl;
+	protected label = contentChild('label');
+	protected ngControl = contentChild(NgControl);
 	protected Validators = Validators;
 
 	get control() {
-		return this.ngControl?.control;
+		return this.ngControl()?.control;
 	}
 }

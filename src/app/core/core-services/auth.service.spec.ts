@@ -15,22 +15,22 @@ describe('AuthService', () => {
 	});
 
 	describe('login', () => {
-		it('should set the name in localStorage and return true', () => {
+		it('should set the name in localStorage and return true', async () => {
 			const name = 'testUser';
-			const result = service.login(name);
+			const result = await service.login(name);
 			expect(result).toBe(true);
 		});
 
-		it('should not set the name in localStorage if name is empty', () => {
-			const result = service.login('');
+		it('should not set the name in localStorage if name is empty', async () => {
+			const result = await service.login('');
 			expect(result).toBe(false);
 		});
 	});
 
 	describe('logout', () => {
-		it('should remove the name from localStorage and return false', () => {
+		it('should remove the name from localStorage and return false', async () => {
 			localStorage.setItem('name', 'testUser');
-			const result = service.logout();
+			const result = await service.logout();
 			expect(result).toBe(false);
 		});
 	});

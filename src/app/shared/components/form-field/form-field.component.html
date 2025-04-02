@@ -1,6 +1,6 @@
 <div>
 	<ng-content select="label"></ng-content>
-	@if (control?.hasValidator(Validators.required)) {
+	@if (label() && control?.hasValidator(Validators.required)) {
 		<abbr class="required" title="required">*</abbr>
 	}
 </div>

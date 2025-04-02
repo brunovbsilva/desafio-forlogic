@@ -1,11 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '@core/core-services/auth.service';
 
 describe('LayoutComponent', () => {
 	let component: LayoutComponent;
 	let fixture: ComponentFixture<LayoutComponent>;
+	let authService: AuthService;
+	let router: Router;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -15,6 +19,8 @@ describe('LayoutComponent', () => {
 
 		fixture = TestBed.createComponent(LayoutComponent);
 		component = fixture.componentInstance;
+		authService = TestBed.inject(AuthService);
+		router = TestBed.inject(Router);
 		fixture.detectChanges();
 	});
 
@@ -34,16 +40,28 @@ describe('LayoutComponent', () => {
 	});
 
 	describe('Header', () => {
-		const header = 'header[data-test="header"]';
-		const headerInput = 'input[data-test="header-input"]';
-		const headerUser = '[data-test="header-user"]';
-		const headerLogout = '[data-test="header-logout"]';
-		it('should exists', () => expect(fixture.debugElement.nativeElement.querySelector(header)).toBeTruthy());
-		it('should contains a search input', () =>
-			expect(fixture.debugElement.nativeElement.querySelector(headerInput)).toBeTruthy());
-		it('should contains an user info', () =>
-			expect(fixture.debugElement.nativeElement.querySelector(headerUser)).toBeTruthy());
-		it('should contains a logout button', () =>
-			expect(fixture.debugElement.nativeElement.querySelector(headerLogout)).toBeTruthy());
+		let header: any;
+		let headerInput: any;
+		let headerUser: any;
+		let headerLogout: any;
+		beforeEach(() => {
+			header = fixture.debugElement.nativeElement.querySelector('header[data-test="header"]');
+			headerInput = fixture.debugElement.nativeElement.querySelector('input[data-test="header-input"]');
+			headerUser = fixture.debugElement.nativeElement.querySelector('[data-test="header-user"]');
+			headerLogout = fixture.debugElement.nativeElement.querySelector('[data-test="header-logout"]');
+		});
+		it('should exists', () => expect(header).toBeTruthy());
+		it('should contains a search input', () => expect(headerInput).toBeTruthy());
+		it('should contains an user info', () => expect(headerUser).toBeTruthy());
+		it('should contains a logout button', () => expect(headerLogout).toBeTruthy());
+		it('should logout', fakeAsync(() => {
+			const logoutSpy = spyOn(authService, 'logout').and.callThrough();
+			const navigateSpy = spyOn(router, 'navigate');
+			headerLogout.click();
+			tick(100);
+			fixture.detectChanges();
+			expect(logoutSpy).toHaveBeenCalled();
+			expect(navigateSpy).toHaveBeenCalled();
+		}));
 	});
 });
