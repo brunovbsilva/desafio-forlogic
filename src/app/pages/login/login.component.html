@@ -7,7 +7,7 @@
 	</ng-container>
 
 	<ng-container body>
-		<form [formGroup]="form" data-test="login-form" (submit)="login()">
+		<form [formGroup]="form" class="form" data-test="login-form" (submit)="login()">
 			<app-form-field>
 				<input type="email" formControlName="email" id="email" placeholder="Email" data-test="email" />
 			</app-form-field>

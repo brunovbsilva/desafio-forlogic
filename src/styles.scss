@@ -1,12 +1,35 @@
+:root {
+	--background-color: #f5f5f5;
+	--foreground-color: #ffffff;
+	--header-color: #ededed;
+	--logo-color: #d9d9d9;
+	--logo-secondary-color: #eff4fc;
+
+	--primary-color: #5763a0;
+	--secondary-color: #000000;
+	--success-color: #61a057;
+	--danger-color: #c15959;
+
+	--text-color: #1a1a1a;
+	--text-hint-color: #808080;
+}
+
 html,
 body {
 	padding: 0;
 	margin: 0;
 	height: -webkit-fill-available;
+	background-color: var(--background-color);
 }
 
 * {
 	box-sizing: border-box;
+	color: var(--text-color);
+	font-family: 'Roboto', sans-serif;
+}
+
+.hint {
+	color: var(--text-hint-color);
 }
 
 hr {
@@ -21,4 +44,15 @@ hr {
 		width: 1px;
 		height: 100%;
 	}
+}
+
+input {
+	height: 2.5rem;
+	padding: 0.5rem 1rem;
+}
+
+textarea {
+	min-height: 5rem;
+	resize: vertical;
+	padding: 0.5rem 1rem;
 }

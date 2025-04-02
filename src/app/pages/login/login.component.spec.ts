@@ -59,10 +59,10 @@ describe('LoginComponent', () => {
 			passwordInput.dispatchEvent(new Event('input'));
 			fixture.detectChanges();
 			submitButton.click();
-      tick(100);
+			tick(100);
 			fixture.detectChanges();
 			expect(loginSpy).toHaveBeenCalled();
-			expect(loginSpy).toHaveBeenCalled();
+			expect(navigateSpy).toHaveBeenCalled();
 		}));
 	});
 });

@@ -9,6 +9,7 @@ import { Component, input } from '@angular/core';
 	host: {
 		'[class.btn-primary]': "severity() === 'primary'",
 		'[class.btn-secondary]': "severity() === 'secondary'",
+		'[class.btn-success]': "severity() === 'success'",
 		'[class.btn-text]': "severity() === 'text'",
 	},
 })
