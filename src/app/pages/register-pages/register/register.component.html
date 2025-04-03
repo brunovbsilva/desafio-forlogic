@@ -4,6 +4,23 @@
 		<a custom-button severity="success" routerLink="create">Novo cadastro</a>
 	</ng-container>
 	<ng-container body>
-		<p>Body</p>
+		<table data-test="main-table">
+			<thead>
+				<tr>
+					<th start>Nome</th>
+					<th start>E-mail</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (person of peopleList$(); track $index) {
+					<tr>
+						<td start>{{ person.name }}</td>
+						<td start>{{ person.email }}</td>
+						<td [class.hint]="!person.active">{{ person.active ? 'Ativo' : 'Inativo' }}</td>
+					</tr>
+				}
+			</tbody>
+		</table>
 	</ng-container>
 </app-card>

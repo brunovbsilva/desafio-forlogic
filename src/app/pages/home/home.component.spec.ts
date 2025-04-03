@@ -1,7 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
-import { PeopleService } from '../../services/people.service';
+import { PeopleService, providePeopleServiceForTesting } from '@services/people.service';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;
@@ -11,12 +11,7 @@ describe('HomeComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [HomeComponent],
-			providers: [
-				{
-					provide: PeopleService,
-					useValue: jasmine.createSpyObj('PeopleService', ['getAllAsync', 'getHomeScoreAsync']),
-				},
-			],
+			providers: [providePeopleServiceForTesting()],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(HomeComponent);
@@ -57,6 +52,11 @@ describe('HomeComponent', () => {
 	it('should contains main content', () => {
 		const mainContent = fixture.debugElement.nativeElement.querySelector('[data-test="main-content"]');
 		expect(mainContent).toBeTruthy();
+	});
+
+	it('should contains main table', () => {
+		const mainTable = fixture.debugElement.nativeElement.querySelector('[data-test="main-table"]');
+		expect(mainTable).toBeTruthy();
 	});
 
 	describe('on init', () => {

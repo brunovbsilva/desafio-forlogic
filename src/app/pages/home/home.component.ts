@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CardComponent } from '../../shared/components/card/card.component';
-import { PeopleService } from '../../services/people.service';
+import { PeopleService } from '@services/people.service';
 import { HomeScore } from '@models/home-score.response';
 import { Person } from '@models/dtos/person';
 

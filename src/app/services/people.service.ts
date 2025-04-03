@@ -25,3 +25,10 @@ export class PeopleService extends BaseService {
 		return this.getAsync<HomeScore>('score');
 	}
 }
+
+export const providePeopleServiceForTesting = () => {
+	return {
+		provide: PeopleService,
+		useValue: jasmine.createSpyObj('PeopleService', ['getAllAsync', 'postPersonAsync', 'getHomeScoreAsync']),
+	};
+};

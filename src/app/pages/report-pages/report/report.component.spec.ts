@@ -22,10 +22,13 @@ describe('ReportComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	const mainContent = '[data-test="main-content"]';
-	const mainTable = '[data-test="main-table"]';
-	it('should contains main content', () =>
-		expect(fixture.debugElement.nativeElement.querySelector(mainContent)).toBeTruthy());
-	it('should contains main table', () =>
-		expect(fixture.debugElement.nativeElement.querySelector(mainTable)).toBeTruthy());
+	it('should contains main content', () => {
+		const mainContent = fixture.debugElement.nativeElement.querySelector('[data-test="main-content"]');
+		expect(mainContent).toBeTruthy();
+	});
+	
+	it('should contains main table', () => {
+		const mainTable = fixture.debugElement.nativeElement.querySelector('[data-test="main-table"]');
+		expect(mainTable).toBeTruthy();
+	});
 });

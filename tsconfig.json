@@ -27,7 +27,8 @@
 			"@validators/*": ["./src/app/shared/validators/*"],
 			"@models/*": ["./src/app/models/*"],
 			"@shared/*": ["./src/app/shared/*"],
-			"@routes/*": ["./src/app/routes/*"]
+			"@routes/*": ["./src/app/routes/*"],
+			"@services/*": ["./src/app/services/*"]
 		}
 	},
 	"angularCompilerOptions": {
