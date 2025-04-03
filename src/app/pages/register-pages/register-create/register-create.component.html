@@ -1,7 +1,7 @@
 <form [formGroup]="form">
 	<app-card>
 		<ng-container header>
-			<h2>Novo cadastro</h2>
+			<h2 class="hint">Novo cadastro</h2>
 			<p class="active-input">
 				<input type="radio" formControlName="active" />
 				<span>Ativo</span>
@@ -35,17 +35,17 @@
 			<h3>2° Interesses</h3>
 			<hr />
 			<app-form-field>
-				<textarea type="text" id="other" formControlName="interest"></textarea>
+				<textarea type="text" id="interest" formControlName="interest"></textarea>
 			</app-form-field>
 			<h3>3° Sentimentos</h3>
 			<hr />
 			<app-form-field>
-				<textarea type="text" id="other" formControlName="feelings"></textarea>
+				<textarea type="text" id="feelings" formControlName="feelings"></textarea>
 			</app-form-field>
 			<h3>4° Valores</h3>
 			<hr />
 			<app-form-field>
-				<textarea type="text" id="other" formControlName="values"></textarea>
+				<textarea type="text" id="values" formControlName="values"></textarea>
 			</app-form-field>
 		</ng-container>
 		<ng-container footer>

@@ -1,7 +1,7 @@
 <div class="card-row" data-test="card-row">
 	<app-card data-test="total-card">
 		<ng-container body>
-			<span class="card-score card-score--primary">100</span>
+			<span class="card-score card-score--primary">{{ homeScore$()?.totalScore ?? 0 }}</span>
 		</ng-container>
 		<ng-container footer>
 			<span class="card-hint">Total de cadastros</span>
@@ -9,7 +9,7 @@
 	</app-card>
 	<app-card data-test="last-month-card">
 		<ng-container body>
-			<span class="card-score card-score--success">100</span>
+			<span class="card-score card-score--success">{{ homeScore$()?.lastMonthScore ?? 0 }}</span>
 		</ng-container>
 		<ng-container footer>
 			<span class="card-hint">Cadastros no último mês</span>
@@ -17,7 +17,7 @@
 	</app-card>
 	<app-card data-test="pending-card">
 		<ng-container body>
-			<span class="card-score card-score--danger">100</span>
+			<span class="card-score card-score--danger">{{ homeScore$()?.pendingScore ?? 0 }}</span>
 		</ng-container>
 		<ng-container footer>
 			<span class="card-hint">Cadastros com pendência de revisão</span>
@@ -27,9 +27,26 @@
 
 <app-card class="main-content" data-test="main-content">
 	<ng-container header>
-		<h2>Últimos cadastros</h2>
+		<h2 class="hint">Últimos cadastros</h2>
 	</ng-container>
 	<ng-container body>
-		<p>Body</p>
+		<table>
+			<thead>
+				<tr>
+					<th start>Nome</th>
+					<th start>E-mail</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (person of peopleList$(); track $index) {
+					<tr>
+						<td start>{{ person.name }}</td>
+						<td start>{{ person.email }}</td>
+						<td [class.hint]="!person.active">{{ person.active ? 'Ativo' : 'Inativo' }}</td>
+					</tr>
+				}
+			</tbody>
+		</table>
 	</ng-container>
 </app-card>

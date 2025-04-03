@@ -1,20 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { PeopleService } from '../../services/people.service';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;
 	let fixture: ComponentFixture<HomeComponent>;
+	let peopleService: PeopleService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [HomeComponent],
+			providers: [
+				{
+					provide: PeopleService,
+					useValue: jasmine.createSpyObj('PeopleService', ['getAllAsync', 'getHomeScoreAsync']),
+				},
+			],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(HomeComponent);
 		component = fixture.componentInstance;
-		fixture.detectChanges();
+		peopleService = TestBed.inject(PeopleService);
+		(peopleService.getAllAsync as jasmine.Spy).and.resolveTo({ result: [], success: true, errors: [] });
+		(peopleService.getHomeScoreAsync as jasmine.Spy).and.resolveTo({
+			result: {
+				totalScore: 0,
+				pendingScore: 0,
+				lastMonthScore: 0,
+			},
+			success: true,
+			errors: [],
+		});
 	});
+
+	beforeEach(fakeAsync(() => {
+		fixture.detectChanges();
+		tick(100);
+	}));
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
@@ -31,7 +54,13 @@ describe('HomeComponent', () => {
 		it('pending card', () => expect(fixture.debugElement.nativeElement.querySelector(pendingCard)).toBeTruthy());
 	});
 
-	const mainContent = '[data-test="main-content"]';
-	it('should contains main content', () =>
-		expect(fixture.debugElement.nativeElement.querySelector(mainContent)).toBeTruthy());
+	it('should contains main content', () => {
+		const mainContent = fixture.debugElement.nativeElement.querySelector('[data-test="main-content"]');
+		expect(mainContent).toBeTruthy();
+	});
+
+	describe('on init', () => {
+		it('should call getAllAsync', () => expect(peopleService.getAllAsync).toHaveBeenCalled());
+		it('should call getHomeScoreAsync', () => expect(peopleService.getHomeScoreAsync).toHaveBeenCalled());
+	});
 });

@@ -14,35 +14,35 @@ export abstract class BaseService {
 		this.url = `${url}/api/${controller}`;
 	}
 
-	private async ExecuteAsync<T>(request: Observable<T>): Promise<T> {
+	private async executeAsync<T>(request: Observable<T>): Promise<T> {
 		return lastValueFrom(request);
 	}
 
-	protected async GetAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
-		return this.ExecuteAsync(
+	protected async getAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
+		return this.executeAsync(
 			this.http.get<BaseResponse<T>>(
 				`${this.url}${path ? '/' + path : ''}${params ? '?' + QueryStringHelper.MapParams(params) : ''}`
 			)
 		);
 	}
 
-	protected async PostAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
-		return this.ExecuteAsync(this.http.post<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
+	protected async postAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
+		return this.executeAsync(this.http.post<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
 	}
 
-	protected async PutAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
-		return this.ExecuteAsync(this.http.put<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
+	protected async putAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
+		return this.executeAsync(this.http.put<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
 	}
 
-	protected async DeleteAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
-		return this.ExecuteAsync(
+	protected async deleteAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
+		return this.executeAsync(
 			this.http.delete<BaseResponse<T>>(
 				`${this.url}${path ? '/' + path : ''}${params ? '?' + QueryStringHelper.MapParams(params) : ''}`
 			)
 		);
 	}
 
-	protected async PatchAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
-		return this.ExecuteAsync(this.http.patch<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
+	protected async patchAsync<T>(path: string, params?: object): Promise<BaseResponse<T>> {
+		return this.executeAsync(this.http.patch<BaseResponse<T>>(`${this.url}${path ? '/' + path : ''}`, params));
 	}
 }
