@@ -1,11 +1,11 @@
-name: Docker Image CI for GHCR
+name: Create Docker Image for GHCR
 
 on:
   push:
     branches:
-      - development
-      - stage
       - master
+      - stage
+      - development
 
 jobs:
   build_and_publish:
@@ -17,7 +17,7 @@ jobs:
       - name: Login to GitHub Container Registry
         run: |
           docker login --username ${{ github.actor }} --password ${{ secrets.GHCR_TOKEN }} ghcr.io
-  
+
       - name: Extract metadata for Docker
         id: meta
         uses: docker/metadata-action@v4
@@ -26,7 +26,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha
-  
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
@@ -34,5 +34,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-        
