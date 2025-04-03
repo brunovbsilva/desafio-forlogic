@@ -64,5 +64,13 @@ describe('LoginComponent', () => {
 			expect(loginSpy).toHaveBeenCalled();
 			expect(navigateSpy).toHaveBeenCalled();
 		}));
+
+		it('should not login with invalid form', fakeAsync(() => {
+			submitButton.click();
+			tick(100);
+			fixture.detectChanges();
+			expect(loginSpy).not.toHaveBeenCalled();
+			expect(navigateSpy).not.toHaveBeenCalled();
+		}));
 	});
 });

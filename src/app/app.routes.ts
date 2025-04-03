@@ -7,7 +7,7 @@ import { AuthService } from '@core/core-services/auth.service';
 export const routes: Routes = [
 	{
 		path: '',
-		canMatch: [() => inject(AuthService).isAuthenticated()],
+		canMatch: [() => inject(AuthService).isAuthenticated$()],
 		component: LayoutComponent,
 		loadChildren: () => import('@routes/logged.routes').then(m => m.routes),
 	},
