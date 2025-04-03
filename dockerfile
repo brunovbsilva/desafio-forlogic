@@ -4,8 +4,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-ARG BUILD_COMMAND=npm run build
-RUN $BUILD_COMMAND
+RUN npm run build:prod
 
 FROM nginx:latest
 RUN rm -rf /usr/share/nginx/html/*
