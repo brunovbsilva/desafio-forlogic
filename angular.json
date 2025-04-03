@@ -134,7 +134,7 @@
 						"scripts": [],
 						"codeCoverage": true,
 						"karmaConfig": "karma.conf.js",
-						"codeCoverageExclude": []
+						"codeCoverageExclude": ["src/app/services/base.service.*", "src/app/shared/helpers/*"]
 					}
 				},
 				"lint": {
