@@ -2,7 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
 import { ActivatedRoute } from '@angular/router';
-import { PeopleService, providePeopleServiceForTesting } from '@services/people.service';
+import { PeopleService } from '@services/people.service';
+import { providePeopleServiceForTesting } from '@services/people.service.spec';
 
 describe('RegisterComponent', () => {
 	let component: RegisterComponent;

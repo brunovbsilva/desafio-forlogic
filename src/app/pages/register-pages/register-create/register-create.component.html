@@ -1,56 +1,56 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="submit()">
 	<app-card>
 		<ng-container header>
 			<h2 class="hint">Novo cadastro</h2>
 			<p class="active-input">
-				<input type="radio" formControlName="active" />
-				<span>Ativo</span>
+				<input type="radio" id="active" formControlName="active" [value]="true" data-test="active-input" />
+				<label for="active">Ativo</label>
 			</p>
 		</ng-container>
 		<ng-container body>
 			<h3>1° Fatos e Dados</h3>
-			<hr />
+			<hr large />
 			<app-form-field>
 				<label for="name">Nome</label>
-				<input type="text" id="name" formControlName="name" />
+				<input type="text" id="name" formControlName="name" data-test="name-input" />
 			</app-form-field>
 			<div class="form-row">
 				<app-form-field class="small-size">
 					<label for="age">Idade</label>
-					<input type="text" id="age" formControlName="age" />
+					<input type="number" id="age" formControlName="age" data-test="age-input"/>
 				</app-form-field>
 				<app-form-field>
 					<label for="email">E-mail</label>
-					<input type="text" id="email" formControlName="email" />
+					<input type="text" id="email" formControlName="email" data-test="email-input"/>
 				</app-form-field>
 			</div>
 			<app-form-field>
 				<label for="addess">Endereço</label>
-				<input type="text" id="addess" formControlName="address" />
+				<input type="text" id="addess" formControlName="address" data-test="address-input"/>
 			</app-form-field>
 			<app-form-field>
 				<label for="other">Outras informações</label>
-				<textarea type="text" id="other" formControlName="other"></textarea>
+				<textarea type="text" id="other" formControlName="other" data-test="other-input"></textarea>
 			</app-form-field>
 			<h3>2° Interesses</h3>
-			<hr />
+			<hr large />
 			<app-form-field>
-				<textarea type="text" id="interest" formControlName="interest"></textarea>
+				<textarea type="text" id="interest" formControlName="interest" data-test="interest-input"></textarea>
 			</app-form-field>
 			<h3>3° Sentimentos</h3>
-			<hr />
+			<hr large />
 			<app-form-field>
-				<textarea type="text" id="feelings" formControlName="feelings"></textarea>
+				<textarea type="text" id="feelings" formControlName="feelings" data-test="feelings-input"></textarea>
 			</app-form-field>
 			<h3>4° Valores</h3>
-			<hr />
+			<hr large />
 			<app-form-field>
-				<textarea type="text" id="values" formControlName="values"></textarea>
+				<textarea type="text" id="values" formControlName="values" data-test="values-input"></textarea>
 			</app-form-field>
 		</ng-container>
 		<ng-container footer>
 			<div class="center-button">
-				<button custom-button severity="secondary" type="submit">Gravar</button>
+				<button custom-button severity="success" type="submit" data-test="submit-button">Gravar</button>
 			</div>
 		</ng-container>
 	</app-card>

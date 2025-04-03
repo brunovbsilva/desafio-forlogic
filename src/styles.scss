@@ -4,6 +4,8 @@
 	--header-color: #ededed;
 	--logo-color: #d9d9d9;
 	--logo-secondary-color: #eff4fc;
+	--lines-color: #eeebeb;
+	--lines-color-dark: #c1c0c0;
 
 	--primary-color: #5763a0;
 	--secondary-color: #000000;
@@ -34,16 +36,27 @@ body {
 }
 
 hr {
-	background-color: var(--text-hint-color);
+	background-color: var(--lines-color);
 	outline: none;
 	border: none;
 	margin: 0;
 	width: 100%;
 	height: 1px;
 
+	&[dark] {
+		background-color: var(--lines-color-dark);
+	}
+
+	&[large] {
+		height: 2px;
+	}
+
 	&[vertical] {
 		width: 1px;
 		height: 100%;
+		&[large] {
+			width: 2px;
+		}
 	}
 }
 
@@ -74,7 +87,7 @@ table {
 	thead {
 		tr {
 			line-height: 2;
-			border-bottom: 1px solid var(--text-hint-color);
+			border-bottom: 1px solid var(--logo-color);
 
 			th {
 				text-transform: uppercase;
@@ -94,7 +107,7 @@ table {
 	tbody {
 		tr {
 			line-height: 2;
-			border-bottom: 1px solid var(--text-hint-color);
+			border-bottom: 1px solid var(--logo-color);
 
 			td {
 				font-weight: 400;

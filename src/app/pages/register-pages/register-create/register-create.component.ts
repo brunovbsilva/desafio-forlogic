@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CardComponent } from '../../../shared/components/card/card.component';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldComponent } from '../../../shared/components/form-field/form-field.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { PeopleService } from '@services/people.service';
+import { PostPersonRequest } from '@models/post-person.request';
+import { Router } from '@angular/router';
+import { RegisterCreateForm, RegisterCreateFormModel } from './register-create.form';
 
 @Component({
 	selector: 'app-register-create',
@@ -11,15 +15,21 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 	styleUrl: './register-create.component.scss',
 })
 export class RegisterCreateComponent {
-	form = new FormGroup({
-		active: new FormControl(false),
-		name: new FormControl(null, [Validators.required]),
-		age: new FormControl(null),
-		email: new FormControl(null, [Validators.required]),
-		address: new FormControl(null),
-		other: new FormControl(null),
-		interest: new FormControl(null),
-		feelings: new FormControl(null),
-		values: new FormControl(null),
-	});
+	private _peopleService = inject(PeopleService);
+	private _router = inject(Router);
+
+	private _form = new RegisterCreateForm();
+	protected form: FormGroup<RegisterCreateFormModel> = this._form;
+
+	protected async submit() {
+		if (this.form.invalid) {
+			this.form.markAllAsTouched();
+			return;
+		}
+		await this.postPerson(this._form.getRequest());
+	}
+
+	private async postPerson(request: PostPersonRequest) {
+		await this._peopleService.postPersonAsync(request).then(() => this._router.navigate(['/register']));
+	}
 }

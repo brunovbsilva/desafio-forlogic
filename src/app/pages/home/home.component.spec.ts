@@ -1,7 +1,8 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
-import { PeopleService, providePeopleServiceForTesting } from '@services/people.service';
+import { PeopleService } from '@services/people.service';
+import { providePeopleServiceForTesting } from '@services/people.service.spec';
 
 describe('HomeComponent', () => {
 	let component: HomeComponent;

@@ -6,3 +6,9 @@
 .required {
 	text-decoration: none;
 }
+
+.error-message span {
+	color: var(--danger-color);
+	font-size: 0.675rem;
+	margin-top: 0.25rem;
+}

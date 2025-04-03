@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportUserListComponent } from './report-user-list.component';
-import { PeopleService, providePeopleServiceForTesting } from '@services/people.service';
+import { PeopleService } from '@services/people.service';
+import { providePeopleServiceForTesting } from '@services/people.service.spec';
 
 describe('ReportUserListComponent', () => {
 	let component: ReportUserListComponent;

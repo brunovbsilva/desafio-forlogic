@@ -4,6 +4,13 @@ import { PeopleService } from './people.service';
 import { BaseServiceTest } from './base.service.spec';
 import { PostPersonRequest } from '@models/post-person.request';
 
+export const providePeopleServiceForTesting = () => {
+	return {
+		provide: PeopleService,
+		useValue: jasmine.createSpyObj('PeopleService', ['getAllAsync', 'postPersonAsync', 'getHomeScoreAsync']),
+	};
+};
+
 describe('PeopleService', () => {
 	let service: PeopleService;
 	let baseService: BaseServiceTest;
