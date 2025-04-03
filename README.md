@@ -48,3 +48,9 @@ Esta pipeline será responsável pelo controle de versões do aplicativo, gerand
 - Fazer o login no github utilizando uma key privada através dos secrets do repositório
 - Extrair o metadata do push (branch e sha key)
 - Build e push Docker Image utilizando o metadata do passo anterior como tags para gerar o histórico de versões
+
+
+## Considerações finais
+
+Este projeto foi desenvolvido por Bruno Vinicius Barros da Silva, durante o período de 1 a 3 de abril de 2025.
+O back-end do projeto se encontra disponível [neste link](https://github.com/brunovbsilva/desafio-forlogic-api)
