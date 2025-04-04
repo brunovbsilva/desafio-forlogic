@@ -3,8 +3,7 @@ name: Create Docker Image for GHCR
 on:
   push:
     branches:
-      - master
-      - stage
+      - main
       - development
 
 jobs:
